@@ -1,6 +1,6 @@
 if [ -z "$1" ]; then
 
-    echo "目录名称缺失！"
+    echo "error: 目录名称缺失！"
     exit 2
 
 elif [ -d $1 ]; then
