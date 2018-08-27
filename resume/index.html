@@ -3,22 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Amanda's Resume</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-        <a href="#">link</a>
-        <a href="/..">link2</a>
-        <iframe name="xxx" src="index2.html" frameborder="0"></iframe>
-        <iframe name="xxx1" src="" frameborder="0"></iframe>
-        <a href="index2.html">Go QQ</a>
-        <a href="#">Stay</a>
-        <!--www.qq.com qq.com是两个域名？-->
-    <div class="top">
-        <div class="logo">
-            <img src="#" alt="logo">
-        </div>
+    <div class="topNavBar clearfix">
+        <a class="logo" href="#">
+            <span class="rs">RS</span><span class="card">card</span>
+        </a>
         <nav>
-            <ul>
+            <ul class="clearfix">
                 <li><a href="#">关于</a></li>
                 <li><a href="#">技能</a></li>
                 <li><a href="#">作品</a></li>
@@ -99,74 +93,3 @@
     </section>
 </body>
 </html>
-<!--
-    css布局：横向 & 纵向，今年多了grid布局：二维（未接触）
-    常见标签，
-        iframe （可能在遗留项目中见到）
-        |-页面中嵌套一个页面
-        |-是可替换元素，有默认高150 宽300，可css设置iframe宽高（用iframe后页面变有点卡）
-        |-name属性 和 a 标签配合使用，
-            在name为xxx的窗口加载/打开 a 标签href要跳转的页面（指定dom中[name="xxx"]的iframe打开页面）：
-            <iframe name="xxx" src="#" frameborder="0"></iframe>
-            <a href="http://www.qq.com" target="xxx"></a>
-        |- frameborder="0" iframe默认有insert样式的边框，去掉
-        |- iframe的 src 属性支持可用相对路径、绝对路径
-        a 跳转页面
-        |- target 理解, target属性的值有：_blank _self _parent _top ifram的name属性值
-        |- download属性 强制下载而不是用来展示（可用来下载一个安装包）
-            不加也可能会下载，决定是否下载，有两个层面：
-            |- http响应决定，响应中的 Content-Type: application/octet-stream，浏览器会以下载的形式接收这个响应内容
-            |- a 标签指定 download属性
-
-        |- href 到底能写什么东西（其实是最复杂的）
-            href="qq.com" 能这样写？会跳到qq.com
-            规则：写代码时不准用file协议
-            1-上传到github，使用其预览功能
-            2-使用 http-server 小工具 npm -i -g http-server
-                http-server -c-1
-            该如何写呢？（已使用http-server）21:32
-             - 完整地址 http://qq.com 
-            1- 无协议，所以这是跳转时使用的是当前页面的协议
-            2- 相对路径./xxx.html，跳转的是localhost:8080/xxx.html 
-             -  #3njdf（页面内的跳转）
-             -  ?name=lucy
-            3- 伪协议 <a href="javascript:alert(1);"></a>
-                href="javascript:;" 用法：点击之后什么都不能做的 a 标签（奇葩的需求）；href为"#",""都不行，
-                a标签不能没有href
-  
-        |- 锚点
-
-        form 跳转页面（HTTP POST请求）
-        |- 必须有 submit 按钮 ① 如何能提交form？
-        |- 主要是用来发起POST请求
-         - form POST提交时，input的name会作为第4部分的key
-         application/x-www-form-urlencoded
-         username=100&password=123
-         键盘上除外的字符（如中文），会使用其utf-8编码，每两位用%分隔
-         - GET提交会把参数当做 查询参数 放到 url 中
-        |-target属性（form标签也有） a 与 form是一对，用来发请求
-        
-        input / button 没讲的其他type自己看/试
-        input无，但button可有子元素
-        |-button 与 type="submit" 区别 ①
-            1. 无submit，<button>会升级为submit按钮（不是type="button"）
-        |-label for 与 input的id, 但流传的方法：label包住input
-                <label>用户名<input type="text"></label>
-        |-checkbox radio
-        |-select multiple
-            option 
-        |-textarea
-
-        table 非子标签
-        HTML规定 table中只能有3个元素: thead tbody tfoot
-        tr th td
-        |-th table header表头
-        |-td table data 数据
-
-        还有子标签
-        <colgroup>
-            <col></col>
-        </colgroup>
-
-        border-collapse: collapse;
--->
