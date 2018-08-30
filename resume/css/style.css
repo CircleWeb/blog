@@ -20,10 +20,16 @@ a {
 }
 
 .topNavBar {
-    padding: 20px 150px;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
 }
 
-.topNavBar>.logo {
+.topNavBar .topNavBarDiv {
+    padding: 0 150px;
+}
+
+.topNavBar .logo {
     float: left;
     font-size: 26px;
     font-family: "Fredoka One";
@@ -31,27 +37,27 @@ a {
     padding-bottom: 4px;
 }
 
-.topNavBar>nav {
+.topNavBar nav {
     float: right;
     padding-top: 7px;
 }
 
-.topNavBar>.logo>.rs {
+.topNavBar .logo>.rs {
     color: #E8676B;
 }
 
-.topNavBar>.logo>.card {
+.topNavBar .logo>.card {
     color: #9A9DA2;
     margin-left: 4px;
 }
 
-.topNavBar>nav>ul {
+.topNavBar nav>ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.topNavBar>nav>ul>li {
+.topNavBar nav>ul>li {
     float: left;
     margin-left: 17px;
     margin-right: 17px;
@@ -59,15 +65,27 @@ a {
     border-bottom: 3px solid transparent;
 }
 
-.topNavBar>nav>ul>li:hover {
+.topNavBar nav>ul>li:hover {
     border-bottom: 3px solid #E8676B;
 }
 
-.topNavBar>nav>ul>li>a {
+.topNavBar nav>ul>li>a {
     font-size: 12px;
     color: #BEC0C3;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
     display: block;
+}
+
+.banner {
+    height: 516px;
+    background-image:url(../img/rs-cover.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner .masker {
+    height: 100%;
+    background: rgb(44, 51, 64, 0.8);
 }
