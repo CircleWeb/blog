@@ -160,23 +160,23 @@ ul {
     padding: 12px 0;
 }
 
-.userCard .medi {
+.userCard .media {
     background-color: #E8676B;
     text-align: center;
 }
 
-.userCard .medi a {
+.userCard .media a {
     border-radius: 50%;
     display: inline-block; /* 没加时 a 标签没能把 svg 完全包住 */
     padding: 12px;
     margin: 16px;
 }
 
-.userCard .medi a:hover {
+.userCard .media a:hover {
     background-color: rgba(0, 0, 0, 0.1); 
 }
 
-.userCard .medi svg {
+.userCard .media svg {
     width: 28px;
     height: 28px;
     fill: #fff;
