@@ -31,7 +31,7 @@ a {
 
 .topNavBar .logo {
     float: left;
-    font-size: 26px;
+    font-size: 30px;
     font-family: "Fredoka One";
     padding-top: 4px;
     padding-bottom: 4px;
@@ -39,7 +39,7 @@ a {
 
 .topNavBar nav {
     float: right;
-    padding-top: 7px;
+    padding-top: 10px;
 }
 
 .topNavBar .logo>.rs {
@@ -88,4 +88,8 @@ a {
 .banner .masker {
     height: 100%;
     background: rgb(44, 51, 64, 0.8);
+}
+
+.userCard {
+
 }
