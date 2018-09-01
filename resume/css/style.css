@@ -47,7 +47,7 @@ ul {
 
 .topNavBar nav {
     float: right;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 .topNavBar .logo>.rs {
@@ -57,6 +57,10 @@ ul {
 .topNavBar .logo>.card {
     color: #9A9DA2;
     margin-left: 4px;
+}
+
+.topNavBar nav>ul>li {
+    padding: 1px 0;
 }
 
 .topNavBar nav>ul>li {
