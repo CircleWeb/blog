@@ -118,7 +118,7 @@ ul {
     color: #fff;
     font-size: 14px;
     font-weight: bold;
-    padding: 5px 12px;
+    padding: 8px 12px;
     position: relative;
     display: inline-block;
 }
@@ -151,6 +151,7 @@ ul {
     width: 30%;
     font-weight: bold;
     padding: 12px 0;
+    line-height: 18px; /* ubuntu上查看时发现这边的字体变高，发生错位（不同系统查看字体的行高会不一样） */
 }
 
 .avatarAndProfile>.profile dl dd {
