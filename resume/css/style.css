@@ -89,7 +89,7 @@ ul {
 
 .banner>.masker {
     height: 100%;
-    background: rgb(44, 51, 64, 0.8);
+    background: rgba(44, 51, 64, 0.8);
 }
 
 .userCard {
