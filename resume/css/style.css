@@ -10,6 +10,7 @@
 
 body {
     background-color: #eee;
+    color: #3d4451;
 }
 
 a {
@@ -17,7 +18,8 @@ a {
     color: inherit;
 }
 
-ul {
+ul,
+ol {
     list-style: none;
 }
 
@@ -97,13 +99,17 @@ ul {
 }
 
 body>main {
-    margin-top: -345px;
+    margin-top: -344px;
 }
 
-.userCard {
+body .contentBox {
     max-width: 930px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.userCard {
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
 .userCard>.avatarAndProfile {
@@ -216,9 +222,36 @@ body>main {
 }
 
 main p.desc {
-    max-width: 930px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     font-size: 18px;
+}
+
+section.contentBox {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+section.contentBox h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+section.skill ol {
+    background: #fff;
+    margin-top: 30px;
+    padding: 40px 50px;
+}
+section.skill .progressBar {
+    height: 5px;
+    background: #FAE0E0;
+}
+
+section.skill .progressBar>.progressBar-inner {
+    height: 100%;
+    background: #E8676B;
+}
+
+section.skill ol>li {
+    float: left;
+    width: 50%;
 }
