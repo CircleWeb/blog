@@ -3,6 +3,15 @@
     src: url('https://fonts.gstatic.com/s/fredokaone/v5/k3kUo8kEI-tA1RRcTZGmTlHGCac.woff2') format('woff2');
 }
 
+/* cyrillic */
+@font-face {
+    font-family: 'Open Sans';
+    /* font-style: normal;
+    font-weight: 300; */
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -108,8 +117,9 @@ body .contentBox {
     margin-right: auto;
 }
 
-.userCard {
-    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2);
+.userCard,
+section.skills ol {
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 .userCard>.avatarAndProfile {
@@ -223,12 +233,14 @@ body .contentBox {
 
 main p.desc {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 36px;
+    font-family: ttf-wqy-zenhei;
 }
 
 section.contentBox {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 section.contentBox h2 {
@@ -236,22 +248,99 @@ section.contentBox h2 {
     font-size: 24px;
 }
 
-section.skill ol {
+section.skills ol {
     background: #fff;
     margin-top: 30px;
-    padding: 40px 50px;
+    padding: 0px 50px 50px;
 }
-section.skill .progressBar {
+
+section.skills ol>li {
+    float: left;
+    width: 48.2%;
+    padding-top: 40px;
+}
+
+section.skills ol>li:nth-child(even) {
+    float: right;
+}
+
+section.skills ol>li span,
+section.works ol>li {
+    font-size: 14px;
+}
+
+.progressBar {
     height: 5px;
     background: #FAE0E0;
+    margin-top: 5px;
+    border-radius: 2px;
 }
 
-section.skill .progressBar>.progressBar-inner {
+.progressBar>.progressBar-inner {
     height: 100%;
     background: #E8676B;
+    border-radius: 2px;
 }
 
-section.skill ol>li {
+section.works {
+    text-align: center;
+}
+
+section.works nav {
+    margin-top: 35px;
+}
+
+section.works nav,
+section.works nav ol {
+    display: inline-block;
+}
+
+section.works nav ol>li {
     float: left;
-    width: 50%;
+    line-height: 18px;
+    color: #000;
+    font-weight: 590;
+    font-family: "Open Sans";
+    cursor: pointer;
+}
+
+section.works nav ol>li:nth-child(2) {
+    padding: 0 45px;
+    /* 不用 margin: 0 45px */
+}
+
+section.works nav .progressBar {
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+section.works nav .progressBar>.progressBar-inner {
+    position: relative;
+    left: 64%;
+    width: 82px;
+}
+
+section.works .imgContainer {
+    margin-top: 28px;
+    position: relative;
+}
+
+section.works .imgContainer div {
+    position: absolute;
+}
+
+section.works .imgContainer div.big {
+    top: 0;
+    left: 5px;
+}
+
+section.works .imgContainer div.small {
+    top: 0;
+    right: 5px;
+}
+
+section.works .imgContainer div.small:nth-child(3) {
+    top: 298px;
+    right: 5px;
+    margin-bottom: 200px
 }
