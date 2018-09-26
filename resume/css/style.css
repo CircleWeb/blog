@@ -288,10 +288,9 @@ section.portfolio nav {
     margin-top: 30px;
 }
 
-section.portfolio nav,
-section.portfolio nav ol {
+section.portfolio nav {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     /* display: inline-block;后 此div下面 无缘无故出现一个空隙 */
 }
 
@@ -337,7 +336,7 @@ section.portfolio nav .bar.state-3>.bar-inner {
 }
 
 section.portfolio .works {
-    margin-top: 28px;
+    margin-top: 30px;
     position: relative;
 }
 
