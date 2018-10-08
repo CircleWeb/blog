@@ -35,7 +35,10 @@
             p: 'power.com'
         }
 
-        var index = 0
+        var index = 0;
+        // JSON.parse(xx) xx为空串''时，报错Uncaught SyntaxError: Unexpected end of JSON input;
+        // null 或 'null'
+        hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
         while(index < keys['length']) {
             var lineKey = keys[index];
             divxxx = document.createElement('div');
@@ -52,9 +55,10 @@
                 kbdxxx.append(btnXXX);
 
                 btnXXX.onclick = function(xjkdsflkjsf) {
-                    console.log('进入编辑', xjkdsflkjsf);
+                    console.log('进入编辑', xjkdsflkjsf); // 参数随意，接收一个该事件对象
                     var modifyURL = prompt('请输入更改后的网址');
                     hash[this.className] = modifyURL;
+                    localStorage.setItem('modifyZZZ', JSON.stringify(hash));
                 }
 
                 lineIdx ++;
@@ -65,7 +69,7 @@
 
         document.onkeyup = function(e) {
             console.log('哇呜，键盘上的我被按到了', e);
-            if(!e.ctrlKey && !e.altKey && !e.shiftKey&& e.key && hash[e.key]) {
+            if(!e.ctrlKey && !e.altKey && !e.shiftKey && e.key && hash[e.key]) {
                 //location.href = 'http://' + hash[e.key];
                 window.open('http://' + hash[e.key], '_blank');
             }
