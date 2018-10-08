@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航网站</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header></header>
+    <main id="mainxxx">
+        
+    </main>
+    <footer></footer>
+
+    <script>
+        keys = {
+            0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+            1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+            2: ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+            length: 3
+        }
+
+        hash = {
+            q: 'qzone.qq.com',
+            w: 'weibo.com',
+            e: 'explainshell.com',
+            r: 'renren.com',
+            t: 'taobao.com',
+            y: 'youtube.com',
+            u: 'uc.com',
+            i: 'infoQ.com',
+            o: 'oppo.com',
+            p: 'power.com'
+        }
+
+        var index = 0
+        while(index < keys['length']) {
+            var lineKey = keys[index];
+            divxxx = document.createElement('div');
+            mainxxx.appendChild(divxxx);
+            var lineIdx = 0;
+            while(lineIdx < lineKey['length']) {
+                kbdxxx = document.createElement('kbd');
+                divxxx.append(kbdxxx);
+                kbdxxx.textContent = lineKey[lineIdx];
+                
+                lineIdx ++;
+            }
+
+            index ++;
+        }
+
+        document.onkeyup = function(e) {
+            console.log('哇呜，键盘上的我被按到了', e);
+            if(e.key && hash[e.key]) {
+                //location.href = 'http://' + hash[e.key];
+                window.open('http://' + hash[e.key], '_blank');
+            }
+        }
+    </script>
+</body>
+</html>

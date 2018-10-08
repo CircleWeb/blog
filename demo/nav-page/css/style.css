@@ -1,0 +1,21 @@
+kbd {
+    width: 69px;
+    height: 69px;
+    line-height: 69px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    background-color: #000;
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 12px 12px 0;
+    border-radius: 8px;
+}
+
+#mainxxx > div:nth-child(2) {
+    margin-left: 15px;
+}
+
+#mainxxx > div:nth-child(3) {
+    margin-left: 55px;
+}
