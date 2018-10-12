@@ -15,6 +15,7 @@
     <footer></footer>
 
     <script>
+        // 1. 初始化数据
         var keys = {
             0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
             1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -45,16 +46,17 @@
             n: 'nodejs.com'
         }
 
-        var index = 0;
         // JSON.parse(xx) xx为空串''时，报错Uncaught SyntaxError: Unexpected end of JSON input;
         // null 或 'null'
         hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
-        while(index < keys['length']) {
+
+        // 2. 生成键盘
+        for(var index = 0; index < keys['length']; index = index + 1) {
             var lineKey = keys[index];
             var div = document.createElement('div');
 
             var lineIdx = 0;
-            while(lineIdx < lineKey['length']) {
+            for(var lineIdx = 0; lineIdx < lineKey['length']; lineIdx = lineIdx + 1) {
 
                 var span = document.createElement('span');
                 span.textContent = lineKey[lineIdx];
@@ -84,19 +86,19 @@
                 
                 var kbd = document.createElement('kbd')
                 kbd.className = 'key'
+
                 kbd.appendChild(span)
                 kbd.appendChild(btn)
                 kbd.appendChild(img)
 
                 div.appendChild(kbd);
-                lineIdx ++;
             }
 
             wrapBox.appendChild(div);
 
-            index ++;
         }
 
+        // 3. 监听键盘
         document.onkeyup = function(e) {
             console.log('哇呜，键盘上的我被按到了', e);
             if(!e.ctrlKey && !e.altKey && !e.shiftKey && e.key && hash[e.key]) {
