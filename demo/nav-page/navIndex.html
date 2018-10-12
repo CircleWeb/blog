@@ -15,14 +15,14 @@
     <footer></footer>
 
     <script>
-        keys = {
+        var keys = {
             0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
             1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
             2: ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
             length: 3
         }
 
-        hash = {
+        var hash = {
             q: 'qzone.qq.com',
             w: 'weibo.com',
             e: 'explainshell.com',
@@ -41,26 +41,27 @@
         hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
         while(index < keys['length']) {
             var lineKey = keys[index];
-            divxxx = document.createElement('div');
-            mainxxx.appendChild(divxxx);
+            var divxxx = document.createElement('div');
+            var mainxxx.appendChild(divxxx);
             var lineIdx = 0;
             while(lineIdx < lineKey['length']) {
-                kbdxxx = document.createElement('kbd');
-                divxxx.append(kbdxxx);
-                kbdxxx.textContent = lineKey[lineIdx];
 
-                btnXXX = document.createElement('button');
+                var btnXXX = document.createElement('button');
                 btnXXX.textContent = '编辑';
                 btnXXX.className = kbdxxx.textContent;
-                kbdxxx.append(btnXXX);
-
                 btnXXX.onclick = function(xjkdsflkjsf) {
                     console.log('进入编辑', xjkdsflkjsf); // 参数随意，接收一个该事件对象
                     var modifyURL = prompt('请输入更改后的网址');
                     hash[this.className] = modifyURL;
                     localStorage.setItem('modifyZZZ', JSON.stringify(hash));
                 }
+                
+                var kbdxxx = document.createElement('kbd');
+                kbdxxx.className = 'key'
+                kbdxxx.textContent = lineKey[lineIdx];
+                kbdxxx.append(btnXXX);
 
+                divxxx.append(kbdxxx);
                 lineIdx ++;
             }
 
