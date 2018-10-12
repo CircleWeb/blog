@@ -47,7 +47,7 @@
         var index = 0;
         // JSON.parse(xx) xx为空串''时，报错Uncaught SyntaxError: Unexpected end of JSON input;
         // null 或 'null'
-        // hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
+        hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
         while(index < keys['length']) {
             var lineKey = keys[index];
             var div = document.createElement('div');
@@ -61,11 +61,13 @@
                 var btn = document.createElement('button');
                 btn.textContent = '编辑';
                 btn.className = lineKey[lineIdx];
-                btn.onclick = function(xjkdsflkjsf) {
-                    console.log('进入编辑', xjkdsflkjsf); // 参数随意，接收一个该事件对象
-                    var modifyURL = prompt('请输入更改后的网址');
-                    hash[this.className] = modifyURL;
-                    localStorage.setItem('modifyZZZ', JSON.stringify(hash));
+                btn.onclick = function(e) {
+
+                    var domain = prompt('请输入更改后的网址')
+                    e.target.nextSibling.src = 'http://' + domain + '/favicon.ico'
+                    
+                    hash[this.className] = domain
+                    localStorage.setItem('modifyZZZ', JSON.stringify(hash))
                 }
 
                 var img = document.createElement('img')
@@ -77,8 +79,7 @@
 
                 img.onerror = function(e) {
                     e.target.src = 'img/defaultIcon.png'
-                }
-                
+                }                
                 
                 var kbd = document.createElement('kbd')
                 kbd.className = 'key'
