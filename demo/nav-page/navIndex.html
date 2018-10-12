@@ -10,7 +10,7 @@
 <body>
     <header></header>
     <main>
-        <div class="wrapper" id="mainxxx"></div>
+        <div class="wrapper" id="wrapBox"></div>
     </main>
     <footer></footer>
 
@@ -25,48 +25,68 @@
         var hash = {
             q: 'qzone.qq.com',
             w: 'weibo.com',
-            e: 'explainshell.com',
+            e: 'ele.me',
             r: 'renren.com',
             t: 'taobao.com',
             y: 'youtube.com',
             u: 'uc.com',
-            i: 'infoQ.com',
-            o: 'oppo.com',
-            p: 'power.com'
+            i: 'iqiyi.com',
+            o: 'opera.com',
+            p: 'power.com',
+            a: 'amazon.com',
+            s: 'sogou.com',
+            d: 'douban.com',
+            f: 'facebook.com',
+            g: 'google.com.hk',
+            j: 'juejin.im',
+            v: 'v2ex.com',
+            b: 'baidu.com',
+            n: 'nodejs.com'
         }
 
         var index = 0;
         // JSON.parse(xx) xx为空串''时，报错Uncaught SyntaxError: Unexpected end of JSON input;
         // null 或 'null'
-        hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
+        // hash = JSON.parse(localStorage.getItem('modifyZZZ') || 'null') || hash;
         while(index < keys['length']) {
             var lineKey = keys[index];
-            var divxxx = document.createElement('div');
-            mainxxx.appendChild(divxxx);
+            var div = document.createElement('div');
+
             var lineIdx = 0;
             while(lineIdx < lineKey['length']) {
 
                 var span = document.createElement('span');
                 span.textContent = lineKey[lineIdx];
 
-                var btnXXX = document.createElement('button');
-                btnXXX.textContent = '编辑';
-                btnXXX.className = kbdxxx.textContent;
-                btnXXX.onclick = function(xjkdsflkjsf) {
+                var btn = document.createElement('button');
+                btn.textContent = '编辑';
+                btn.className = lineKey[lineIdx];
+                btn.onclick = function(xjkdsflkjsf) {
                     console.log('进入编辑', xjkdsflkjsf); // 参数随意，接收一个该事件对象
                     var modifyURL = prompt('请输入更改后的网址');
                     hash[this.className] = modifyURL;
                     localStorage.setItem('modifyZZZ', JSON.stringify(hash));
                 }
-                
-                var kbdxxx = document.createElement('kbd');
-                kbdxxx.className = 'key'
-                kbxxxx.appendChild(span);
-                kbdxxx.appendChild(btnXXX);
 
-                divxxx.appendChild(kbdxxx);
+                var img = document.createElement('img')
+                if(hash[lineKey[lineIdx]]) {
+                    img.src = 'http://' + hash[lineKey[lineIdx]] + '/favicon.ico'
+                }else {
+                    img.src = 'img/defaultIcon.png'
+                }
+                
+                
+                var kbd = document.createElement('kbd')
+                kbd.className = 'key'
+                kbd.appendChild(span)
+                kbd.appendChild(btn)
+                kbd.appendChild(img)
+
+                div.appendChild(kbd);
                 lineIdx ++;
             }
+
+            wrapBox.appendChild(div);
 
             index ++;
         }

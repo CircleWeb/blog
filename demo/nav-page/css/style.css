@@ -3,44 +3,74 @@
     padding: 0;
 }
 
-kbd {
-    position: relative;
-    width: 69px;
-    height: 69px;
-    line-height: 59px;
-    text-align: center;
-    font-size: 24px;
-    color: #fff;
-    background-color: #000;
-    display: inline-block;
-    text-transform: uppercase;
-    margin: 0 12px 12px 0;
-    border-radius: 8px;
+body {
+    background: grey url(../img/wall.jpg) no-repeat center center;
+    background-size: cover;
 }
 
-kbd>button {
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.wrapper {
+    min-width: 830px;
+    padding: 22px 10px 10px 22px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    margin-top: -50px;
+}
+
+.key {
+    position: relative;
+    width: 69px;
+    height: 63px;
+    display: inline-block;
+    margin: 0 12px 12px 0;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #2c2c2c 0%,#181818 100%);
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 0 0 1px #1A1B1C, 0px 0px 0px 2px #1F2020, 0px 3px 0px 2px #080808;
+}
+
+.key>span {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: 20px;
+    color: #cac9c9;
+    font-family: 'Arial';
+    text-transform: uppercase;
+}
+
+.key>button {
     position: absolute;
     right: 2px;
-    bottom: 0;
+    bottom: 2px;
+    font-size: 14px;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
     display: none;
 }
 
+.key>img {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    width: 22px;
+}
+
 kbd:hover button {
     display: block;
 }
 
-div.wrapper {
-    width: 43%;
-    margin: 200px auto;
-}
-
-#mainxxx>div:nth-child(2) {
+#wrapBox>div:nth-child(2) {
     margin-left: 20px;
 }
 
-#mainxxx>div:nth-child(3) {
+#wrapBox>div:nth-child(3) {
     margin-left: 65px;
 }
