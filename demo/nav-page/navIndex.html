@@ -74,6 +74,10 @@
                 }else {
                     img.src = 'img/defaultIcon.png'
                 }
+
+                img.onerror = function(e) {
+                    e.target.src = 'img/defaultIcon.png'
+                }
                 
                 
                 var kbd = document.createElement('kbd')
