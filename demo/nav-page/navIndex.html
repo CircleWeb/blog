@@ -42,9 +42,12 @@
         while(index < keys['length']) {
             var lineKey = keys[index];
             var divxxx = document.createElement('div');
-            var mainxxx.appendChild(divxxx);
+            mainxxx.appendChild(divxxx);
             var lineIdx = 0;
             while(lineIdx < lineKey['length']) {
+
+                var span = document.createElement('span');
+                span.textContent = lineKey[lineIdx];
 
                 var btnXXX = document.createElement('button');
                 btnXXX.textContent = '编辑';
@@ -58,10 +61,10 @@
                 
                 var kbdxxx = document.createElement('kbd');
                 kbdxxx.className = 'key'
-                kbdxxx.textContent = lineKey[lineIdx];
-                kbdxxx.append(btnXXX);
+                kbxxxx.appendChild(span);
+                kbdxxx.appendChild(btnXXX);
 
-                divxxx.append(kbdxxx);
+                divxxx.appendChild(kbdxxx);
                 lineIdx ++;
             }
 
