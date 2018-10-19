@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heap sort - 堆排序实现</title>
+</head>
+
+<body>
+
+    <p id="inputArr">排序前：</p>
+    <p id="afterSort">排序后：</p>
+
+    <script>
+        var arr = [193,
+            544, 781,
+            608, 780, 843, 889,
+            505, 864, 594, 543, 443, 465, 334, 950,
+            850, 873, 931, 758, 467, 806, 135, 75, 605, 622, 701, 802, 560, 286, 677, 855
+        ]
+
+        console.log(arr);
+        inputArr.append(arr.join(', '))
+
+        var newArr = [];
+
+        var level = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (!arr[Math.pow(2, i) - 1]) {
+                level = i - 1;
+                break;
+            }
+        }
+
+        var nowIdx = Math.pow(2, level) * 2 - 2;
+        for (var i = level; i >= 0; i--) {
+
+            var adjustHeapTime = Math.floor(Math.pow(2, i) / 2);
+
+            for (var j = 0; j < adjustHeapTime; j++) {
+                var firstMaxIdx = findMax(nowIdx, nowIdx - 1);
+                var topIdx = Math.pow(2, i - 1) * 2 - 2 - j;
+                var topMaxIdx = findMax(firstMaxIdx, topIdx);
+
+                if (firstMaxIdx == topMaxIdx) {
+                    exchange(firstMaxIdx, topIdx);
+
+                    if (i < level) {
+                        // 取到变动分支的子节点，进行最大堆
+                        branchMaxHeap(firstMaxIdx, i)
+                    }
+                }
+
+                nowIdx = nowIdx - 2;
+            }
+        }
+
+        exchange(0, arr.length - 1)
+        newArr.unshift(arr.pop())
+
+        while (arr.length > 1) {
+            branchMaxHeap(0, 0);
+            exchange(0, arr.length - 1);
+            newArr.unshift(arr.pop())
+        }
+
+        newArr.unshift(arr.pop())
+        afterSort.append(newArr.join(', '))
+        console.log('排序之后：')
+        console.log(newArr)
+
+        function branchMaxHeap(idx, nowL) {
+            var childIdx = findLevelLastIdx(nowL + 1) - (findLevelLastIdx(nowL) - idx) * 2;
+
+            var childMaxIdx = findMax(childIdx, childIdx - 1)
+            var faChildMaxIdx = findMax(childMaxIdx, idx)
+            if (childMaxIdx == faChildMaxIdx) {
+                exchange(childMaxIdx, idx);
+                nowL++;
+                if (nowL < level) {
+                    branchMaxHeap(childMaxIdx, nowL);
+                }
+            }
+        }
+
+        function exchange(exIdx1, exIdx2) {
+            var t = arr[exIdx1];
+            arr[exIdx1] = arr[exIdx2];
+            arr[exIdx2] = t;
+        }
+
+        function findLevelLastIdx(level) {
+            // 2^level - 1 此level层第一个节点的index
+            return Math.pow(2, level) * 2 - 2;
+        }
+
+        function findMax(nowIdx, compareIdx) {
+            if (arr[nowIdx] > arr[compareIdx])
+                return nowIdx;
+            else
+                return compareIdx;
+        }
+    </script>
+
+</body>
+
+</html>
