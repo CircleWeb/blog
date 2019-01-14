@@ -27,21 +27,23 @@ var server = http.createServer(function(request, response) {
 	// console.log('方方说：不含查询字符串的路径为\n' + pathNoQuery)
 
 
-	if(path == '/') {
+	if(path === '/') {
 		response.setHeader('Content-Type', 'text/html; charset=utf-8')
 		response.write('<!DOCTYPE><html>' +
 			'<head><link rel="stylesheet" href="/style.css"></head>' + 
 			'<body><p>Hello Node.js</p>' +
 			'<script src="/main.js"></script></body></html>')
 		response.end()
-	}else if(path == '/style.css') {
+	}else if(path === '/style.css') {
 		response.setHeader('Content-Type', 'text/css; charset=utf-8')
 		response.write('body{background:#000;} p{text-align:center;color:red;font-size:36}')
 		response.end()
-	}else if(path == '/main.js') {
+	}else if(path === '/main.js') {
 		response.setHeader('Content-Type', 'text/javascript; charset=utf-8')
 		response.write('alert("I\'m a js file")')
 		response.end()
+	}else if(path === '/pay') {
+		
 	}else {
 		response.statusCode = 404
 		response.setHeader('Content-Type', 'text/plain; charset=utf-8')
